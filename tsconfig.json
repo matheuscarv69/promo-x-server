@@ -19,5 +19,14 @@
     "paths": {
       "@controllers/*":["./src/controllers/*"]
     }
-  }
+  },
+  "include": [        
+      "**/*.ts",
+      "*.ts"
+  ],
+  "exclude": [
+      "node_modules"
+  ],
+  "buildOnSave": true,
+  "compileOnSave": true
 }
