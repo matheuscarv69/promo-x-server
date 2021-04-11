@@ -9,7 +9,6 @@ class App {
     this.routes();
   }
 
-
   routes() {
     this.app.route('/').get((req, res) => {
       res.send({
@@ -19,8 +18,6 @@ class App {
       });
     })
   }
-
-
 }
 
 export default new App();
