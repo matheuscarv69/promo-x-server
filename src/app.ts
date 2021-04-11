@@ -1,16 +1,16 @@
 import express from "express";
 
 class App {
-  public app: express.Application;
+  public server: express.Application;
 
   constructor() {
-    this.app = express();
+    this.server = express();
 
     this.routes();
   }
 
   routes() {
-    this.app.route('/').get((req, res) => {
+    this.server.route('/').get((req, res) => {
       res.send({
         Project: 'Promo-X-Server',
         Version: '1.0.0',
