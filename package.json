@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/matheuscarv69/promo-x-server#readme",
   "dependencies": {
+    "apollo-server-express": "^2.23.0",
     "class-validator": "^0.13.1",
     "express": "^4.17.1",
     "graphql": "^15.5.0",

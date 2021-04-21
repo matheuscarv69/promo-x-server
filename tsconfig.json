@@ -10,7 +10,7 @@
     "outDir": "./dist",                              
     "rootDir": "./src",                             
     "removeComments": true,                      
-    "strict": true,                                 
+    "strict": false,                                 
     "typeRoots": [
       "./node_modules/@types"
     ],                             

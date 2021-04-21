@@ -1,4 +1,8 @@
+import "reflect-metadata";
 import express from "express";
+import { ApolloServer, gql } from "apollo-server-express";
+import { buildSchema } from "type-graphql";
+import { ProductResolver } from "./resolvers/ProductResolver";
 
 class App {
   public server: express.Application;
@@ -6,18 +10,21 @@ class App {
   constructor() {
     this.server = express();
 
-    this.routes();
+    this.startApolloServer();
   }
 
-  routes() {
-    this.server.route('/').get((req, res) => {
-      res.send({
-        Project: 'Promo-X-Server',
-        Version: '1.0.0',
-        Developer: 'Matheus Carvalho'
-      });
-    })
+  async startApolloServer() {
+    const app = this.server;
+
+    const apolloServer = new ApolloServer({
+      schema: await buildSchema({
+        resolvers: [ProductResolver],
+      })
+    });
+
+    apolloServer.applyMiddleware({ app });
   }
+
 }
 
 export default new App();
