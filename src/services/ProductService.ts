@@ -1,4 +1,5 @@
 import { Product } from "src/entities/Product";
+import { ProductInput } from "src/models/ProductInput";
 
 class ProductService {
 
@@ -8,13 +9,20 @@ class ProductService {
     return await this.products;
   }
 
-  async create(product: Product) {
-    product.id = `${new Date()}`;
-    this.products.add(product);
+  async createProduct(productData: ProductInput) {
+    const product = {
+      name: productData.name,
+      image: productData.image,
+      category: productData.category,
+    };
 
-    return await this.products;
+    await this.products.push(product);
+
+    return product;
   }
 
+
+  
 }
 
 export default new ProductService();

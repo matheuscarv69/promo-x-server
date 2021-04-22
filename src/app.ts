@@ -19,7 +19,9 @@ class App {
     const apolloServer = new ApolloServer({
       schema: await buildSchema({
         resolvers: [ProductResolver],
-      })
+      }),
+      // context: ({ req, res }) => ({ req, res }),
+      // playground: true
     });
 
     apolloServer.applyMiddleware({ app });
