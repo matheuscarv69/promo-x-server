@@ -1,8 +1,11 @@
-import { Field, ObjectType } from "type-graphql";
+import { Field, ID, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class Product {
  
+  @Field()
+  _id: string;
+
   @Field()
   name: string;
 

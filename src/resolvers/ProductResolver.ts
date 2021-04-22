@@ -1,7 +1,7 @@
 import { Arg, Mutation, Query, Resolver } from "type-graphql";
-import { Product } from "src/entities/Product";
-import { ProductInput } from "src/models/ProductInput";
-import ProductService from "src/services/ProductService";
+import { Product } from "../entities/Product";
+import { ProductInput } from "../models/ProductInput";
+import ProductService from "../services/ProductService";
 
 @Resolver(Product)
 export class ProductResolver {

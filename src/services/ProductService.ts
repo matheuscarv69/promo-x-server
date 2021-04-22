@@ -1,5 +1,5 @@
-import { Product } from "src/entities/Product";
-import { ProductInput } from "src/models/ProductInput";
+import { Product } from "../entities/Product";
+import { ProductInput } from "../models/ProductInput";
 
 class ProductService {
 
@@ -10,7 +10,9 @@ class ProductService {
   }
 
   async createProduct(productData: ProductInput) {
+    let aux = await new Date().getMilliseconds().toString();
     const product = {
+      _id: aux,
       name: productData.name,
       image: productData.image,
       category: productData.category,
@@ -21,8 +23,6 @@ class ProductService {
     return product;
   }
 
-
-  
 }
 
 export default new ProductService();
