@@ -21,11 +21,10 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@controllers/*":["./src/controllers/*"]
+      "@controllers/*":["../controllers/*"]
     }
   },
   "include": [        
-    "src/**/*.ts",
     "**/*.ts",
       "*.ts"
   ],

@@ -18,4 +18,13 @@ export class ProductResolver {
     return product;
   }
 
+  @Query(() => Product)
+  async findProductByName(@Arg('productName') productName: string) {
+    const result = await ProductService.findProductByName(productName);
+
+    return result;
+  }
+
+  
+
 }

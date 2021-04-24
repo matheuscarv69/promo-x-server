@@ -23,6 +23,18 @@ class ProductService {
     return product;
   }
 
+  async findProductByName(name: string) {
+    console.log(name);
+    const result = await this.products.find(product => product.name === name);
+    console.log(result);
+
+    return result;
+  }
+
+  async removeProductById(id: string) {
+
+  }
+
 }
 
 export default new ProductService();

@@ -7,10 +7,10 @@ export class ProductInput {
   name: string;
 
   @Field()
-  image: string;
+  image?: string;
 
   @Field()
-  category: string;
+  category?: string;
 
 
 }
