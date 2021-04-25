@@ -13,8 +13,8 @@ export class ProductResolver {
   }
 
   @Mutation(returns => Product)
-  async createProduct(@Arg('product') productData: ProductInput) {
-    const product = await ProductService.createProduct(productData);
+  async createProduct(@Arg('product') newProductData: ProductInput) {
+    const product = await ProductService.createProduct(newProductData);
     return product;
   }
 
