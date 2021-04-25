@@ -1,0 +1,15 @@
+---
+application:
+  name: "promo-x-server"
+  project: "Promo-X-Server"
+  organization: "QoveryCommunity"
+databases:
+- type: "MONGODB"
+  name: "promo-x"
+  version: "4.4"
+routers:
+- name: "main-promo-x-server"
+  routes:
+  - application_name: "promo-x-server"
+    paths:
+    - "/*"
