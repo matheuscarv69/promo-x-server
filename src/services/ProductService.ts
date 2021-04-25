@@ -1,4 +1,4 @@
-import { Product } from "../entities/Product";
+import { Product, ProductModel } from "../entities/Product";
 import { ProductInput } from "../models/ProductInput";
 
 class ProductService {
@@ -41,20 +41,13 @@ class ProductService {
   }];
 
   async getAll() {
-    return await this.products;
+    // return await this.products;
+    const products = await ProductModel.find({});
+    return products;
   }
 
-  async createProduct(productData: ProductInput) {
-    let aux = new Date().getMilliseconds().toString();
-    const product = {
-      _id: aux,
-      name: productData.name,
-      image: productData.image,
-      category: productData.category,
-    };
-
-    await this.products.push(product);
-
+  async createProduct(newProductData: ProductInput) {
+    const product = await ProductModel.create(newProductData);
     return product;
   }
 
