@@ -13,5 +13,4 @@ export class ProductInput implements Partial<Product>{
   @Field()
   category?: string;
 
-
 }
