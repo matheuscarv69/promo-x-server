@@ -7,7 +7,8 @@ class Database {
     mongoose.connect(this.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      useFindAndModify: false,
     });
   }
 }
