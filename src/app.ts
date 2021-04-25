@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import express from "express";
+import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 
@@ -15,7 +16,17 @@ class App {
     this.database = new Database();
     this.database.createConnection();
 
+    this.enableCors();
     this.startApolloServer();
+  }
+
+  enableCors(){
+    const options: cors.CorsOptions = {
+      methods: "GET, POST, PUT, DELETE, OPTIONS",
+      origin: "*"
+    }
+
+    this.server.use(cors(options));
   }
 
   async startApolloServer() {
