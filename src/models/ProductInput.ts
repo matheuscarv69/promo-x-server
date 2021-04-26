@@ -2,7 +2,7 @@ import { Product } from "../entities/Product";
 import { Field, InputType, ID } from "type-graphql";
 
 @InputType({ description: "New Product data" })
-export class ProductInput implements Partial<Product>{
+export class ProductInput implements Partial<Omit<Product, '_id'>>{
 
   @Field(type => ID, { nullable: true })
   _id?: string;
@@ -11,9 +11,9 @@ export class ProductInput implements Partial<Product>{
   name: string;
 
   @Field()
-  image?: string;
+  image: string;
 
   @Field()
-  category?: string;
+  category: string;
 
 }

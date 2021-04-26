@@ -22,7 +22,7 @@ class App {
 
   enableCors(){
     const options: cors.CorsOptions = {
-      methods: "GET, POST, PUT, DELETE, OPTIONS",
+      methods: "POST, OPTIONS",
       origin: "*"
     }
 
