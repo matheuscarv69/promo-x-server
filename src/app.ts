@@ -20,7 +20,7 @@ class App {
     this.startApolloServer();
   }
 
-  enableCors(){
+  enableCors() {
     const options: cors.CorsOptions = {
       methods: "POST, OPTIONS",
       origin: "*"
