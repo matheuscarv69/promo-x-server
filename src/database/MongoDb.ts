@@ -1,7 +1,8 @@
+import "dotenv/config";
 import mongoose from 'mongoose';
 
-class Database {
-  private DB_URL = 'mongodb://localhost:27017/promo-x';
+class MongoDb {
+  private DB_URL = process.env.MONGO_DB_URL;
 
   createConnection() {
     mongoose.connect(this.DB_URL, {
@@ -13,4 +14,4 @@ class Database {
   }
 }
 
-export default Database;
+export default MongoDb;
