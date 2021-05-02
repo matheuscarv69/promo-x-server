@@ -5,7 +5,7 @@ import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 
 import { ProductResolver } from "./resolvers/ProductResolver";
-import MongoDb from "./database/MongoDb";
+import MongoDb from "./database/mongodb/MongoDb";
 
 class App {
   public server: express.Application;
