@@ -5,7 +5,7 @@ import { Field, ID, ObjectType } from "type-graphql";
 class Product {
 
   @Field(type => ID)
-  _id: string;
+  _id?: string;
 
   @Field()
   @prop()

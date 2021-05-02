@@ -4,7 +4,7 @@ import { Field, InputType, ID } from "type-graphql";
 @InputType({ description: "New Product data" })
 export class ProductInput implements Partial<Omit<Product, '_id'>>{
 
-  @Field(type => ID, { nullable: true })
+  @Field({ nullable: true })
   _id?: string;
 
   @Field()

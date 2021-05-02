@@ -8,11 +8,10 @@ module.exports = [
     username: process.env.PG_USERNAME,
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DATABASE,
-    logging: false,
-    entities: ["src/entities/*.ts"],
-    migrations: ["src/database/postgres/migrations/**/*.ts"],
+    entities: ["./src/entities/**.ts"],
+    migrations: ["./src/database/migrations/**.ts"],
     cli: {
-      migrationsDir: 'src/database/postgres/migrations'
+      migrationsDir: "./src/database/postgres/migrations"
     }
 
   }
