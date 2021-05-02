@@ -6,6 +6,6 @@ let profile = process.env.NODE_ENV;
 
 App.server.listen(port, function () {
   console.log(`👤 Profile: ${profile}`);
-  console.log(`💻 Server executing in port: ${port}`);
+  console.log(`🔥 Server executing in port: ${port}`);
   console.log(`🚀 Apollo Server ready at http://localhost:${port}/graphql`);
 });

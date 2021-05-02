@@ -4,8 +4,9 @@ import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import { buildSchema } from "type-graphql";
 
-import { ProductResolver } from "./resolvers/ProductResolver";
+import './database/postgres/Connect';
 import MongoDb from "./database/mongodb/MongoDb";
+import { ProductResolver } from "./resolvers/ProductResolver";
 
 class App {
   public server: express.Application;
