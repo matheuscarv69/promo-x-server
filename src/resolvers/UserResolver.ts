@@ -18,6 +18,12 @@ export class UserResolver {
     return results;
   }
 
+  @Query(returns => User)
+  async getUserById(@Arg('userId') userId: string) {
+    const result = await this.userService.getUserById(userId);
+    return result;
+  }
+
   @Mutation(returns => User)
   async createUser(@Arg('user') newUserData: UserInput) {
     const user = await this.userService.createUser(newUserData);

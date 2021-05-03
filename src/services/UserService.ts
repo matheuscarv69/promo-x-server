@@ -12,12 +12,17 @@ class UserService {
     this.userRepository = getCustomRepository(UserRepository);
   }
 
-  async getAll() {
+  async getAll(): Promise<User[]> {
     const users = await this.userRepository.find();
     return users;
   }
 
-  async createUser(newUserData: UserInput) {
+  async getUserById(id: string): Promise<User> {
+    const user = await this.userRepository.findOne({ _id: id });
+    return user;
+  }
+
+  async createUser(newUserData: UserInput): Promise<User> {
     const { email } = newUserData;
 
     const userExists = await this.userRepository.findOne({ email })
