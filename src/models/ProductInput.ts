@@ -1,5 +1,7 @@
-import { Product } from "../entities/Product";
+import { Length } from "class-validator";
 import { Field, InputType } from "type-graphql";
+
+import { Product } from "../entities/Product";
 
 @InputType({ description: "New Product data" })
 export class ProductInput implements Partial<Omit<Product, '_id'>>{
@@ -8,12 +10,14 @@ export class ProductInput implements Partial<Omit<Product, '_id'>>{
   _id?: string;
 
   @Field()
+  @Length(1, 255)
   name: string;
 
   @Field()
   image: string;
 
   @Field()
+  @Length(1, 255)
   category: string;
 
 }

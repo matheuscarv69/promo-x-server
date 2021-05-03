@@ -1,5 +1,7 @@
-import { User } from "src/entities/User";
+import { IsEmail, Length } from "class-validator";
 import { Field, InputType } from "type-graphql";
+
+import { User } from "src/entities/User";
 
 @InputType({ description: "New User data" })
 export class UserInput implements Partial<Omit<User, '_id'>>{
@@ -8,12 +10,15 @@ export class UserInput implements Partial<Omit<User, '_id'>>{
   _id?: string;
 
   @Field()
+  @Length(1, 255)
   name: string;
 
   @Field()
+  @IsEmail()
   email: string;
 
   @Field()
+  @Length(1, 255)
   password: string;
 
   @Field()
@@ -21,5 +26,5 @@ export class UserInput implements Partial<Omit<User, '_id'>>{
 
   @Field()
   chain_store: string;
-  
+
 }

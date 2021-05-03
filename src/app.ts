@@ -6,6 +6,7 @@ import { buildSchema } from "type-graphql";
 
 import './database/postgres/Connect';
 import MongoDb from "./database/mongodb/MongoDb";
+
 import { ProductResolver } from "./resolvers/ProductResolver";
 import { UserResolver } from "./resolvers/UserResolver";
 
@@ -38,8 +39,6 @@ class App {
       schema: await buildSchema({
         resolvers: [ProductResolver, UserResolver],
       }),
-      // context: ({ req, res }) => ({ req, res }),
-      // playground: true
     });
 
     apolloServer.applyMiddleware({ app });
