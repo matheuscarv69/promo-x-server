@@ -1,0 +1,16 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "your username",
+  "password": "your password",
+  "database": "your database",
+  "schema": "your schema",
+  "synchronize": false,
+  "logging": true,
+  "entities": ["./src/entities/**.ts"], // your path of entities
+  "migrations": ["./src/database/postgres/migrations/**.ts"], // your path of migrations
+  "cli": {
+    "migrationsDir": "./src/database/postgres/migrations" // your path of migrations
+  }
+}

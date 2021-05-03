@@ -7,6 +7,7 @@ import { buildSchema } from "type-graphql";
 import './database/postgres/Connect';
 import MongoDb from "./database/mongodb/MongoDb";
 import { ProductResolver } from "./resolvers/ProductResolver";
+import { UserResolver } from "./resolvers/UserResolver";
 
 class App {
   public server: express.Application;
@@ -35,7 +36,7 @@ class App {
 
     const apolloServer = new ApolloServer({
       schema: await buildSchema({
-        resolvers: [ProductResolver],
+        resolvers: [ProductResolver, UserResolver],
       }),
       // context: ({ req, res }) => ({ req, res }),
       // playground: true

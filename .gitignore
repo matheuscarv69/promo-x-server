@@ -39,7 +39,6 @@ web_modules/
 # typeorm datas of database
 ormconfig.json
 
-
 # parcel-bundler cache (https://parceljs.org/)
 .cache
 .parcel-cache
