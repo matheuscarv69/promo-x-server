@@ -8,8 +8,14 @@ import { UserService } from '../services/UserService'
 export class UserResolver {
 
   private userService: UserService;
-  constructor(){
+  constructor() {
     this.userService = new UserService;
+  }
+
+  @Query(returns => [User])
+  async getAllUsers() {
+    const results = await this.userService.getAll();
+    return results;
   }
 
   @Mutation(returns => User)

@@ -12,6 +12,11 @@ class UserService {
     this.userRepository = getCustomRepository(UserRepository);
   }
 
+  async getAll() {
+    const users = await this.userRepository.find();
+    return users;
+  }
+
   async createUser(newUserData: UserInput) {
     const { email } = newUserData;
 
