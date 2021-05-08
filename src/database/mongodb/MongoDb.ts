@@ -10,6 +10,7 @@ class MongoDb {
       useUnifiedTopology: true,
       useCreateIndex: true,
       useFindAndModify: false,
+      
     });
   }
 }
