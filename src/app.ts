@@ -10,6 +10,7 @@ import MongoDb from "./database/mongodb/MongoDb";
 import { ProductResolver } from "./resolvers/ProductResolver";
 import { UserResolver } from "./resolvers/UserResolver";
 import { authConfig } from "./configs/AuthConfig";
+import { AuthResolver } from "./resolvers/AuthResolver";
 
 class App {
   public server: express.Application;
@@ -38,7 +39,7 @@ class App {
 
     const apolloServer = new ApolloServer({
       schema: await buildSchema({
-        resolvers: [ProductResolver, UserResolver],
+        resolvers: [AuthResolver, UserResolver, ProductResolver ],
         authChecker: authConfig,
       }),
       context: ({ req, res }) => ({ req, res })
