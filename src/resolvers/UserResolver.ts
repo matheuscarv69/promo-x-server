@@ -1,4 +1,4 @@
-import { Arg, Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Authorized, Mutation, Query, Resolver } from "type-graphql";
 
 import { User } from "../entities/User";
 import { UserInput } from "../models/UserInput";
@@ -12,6 +12,7 @@ export class UserResolver {
     this.userService = new UserService;
   }
 
+  @Authorized("admin")
   @Query(returns => [User])
   async getAllUsers() {
     const results = await this.userService.getAll();
