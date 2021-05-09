@@ -39,10 +39,10 @@ class App {
 
     const apolloServer = new ApolloServer({
       schema: await buildSchema({
-        resolvers: [AuthResolver, UserResolver, ProductResolver ],
+        resolvers: [AuthResolver, UserResolver, ProductResolver],
         authChecker: authConfig,
       }),
-      context: ({ req, res }) => ({ req, res })
+      context: ({ req }) => ({ req })
     });
 
     apolloServer.applyMiddleware({ app });

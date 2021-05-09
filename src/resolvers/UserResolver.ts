@@ -12,7 +12,7 @@ export class UserResolver {
     this.userService = new UserService;
   }
 
-  @Authorized("admin")
+  @Authorized("CLIENT")
   @Query(returns => [User])
   async getAllUsers() {
     const results = await this.userService.getAll();
