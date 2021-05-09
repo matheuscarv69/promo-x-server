@@ -3,19 +3,19 @@ import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate } fr
 import bcrypt from 'bcryptjs';
 
 @ObjectType()
-@Entity("users")
+@Entity("tb_user")
 class User {
 
   @Field(type => ID)
   @PrimaryGeneratedColumn('uuid')
-  _id?: string;
+  _id: string;
 
   @Field()
   @Column()
   name: string;
 
   @Field()
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
