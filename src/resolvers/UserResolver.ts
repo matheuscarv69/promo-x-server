@@ -1,7 +1,8 @@
-import { Arg, Authorized, Mutation, Query, Resolver } from "type-graphql";
+import { Arg, Args, Authorized, Mutation, Query, Resolver } from "type-graphql";
 
 import { User } from "../entities/User";
 import { UserInput } from "../models/UserInput";
+import { UserUpdateInput } from "../models/UserUpdateInput";
 import { UserService } from '../services/UserService'
 
 @Resolver(User)
@@ -31,6 +32,15 @@ export class UserResolver {
     return user;
   }
 
+  @Mutation(returns => User)
+  async updateUserById(@Arg('userDataUpdate') userDataUpdate: UserUpdateInput) {
+    const user = await this.userService.updateUserById(userDataUpdate);
+    return user;
+  }
+
+}
+
+interface IUserInputUpdate {
 
 
 }

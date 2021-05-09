@@ -1,7 +1,7 @@
 import { IsEmail, Length } from "class-validator";
 import { Field, InputType } from "type-graphql";
 
-import { User } from "src/entities/User";
+import { User } from "../entities/User";
 
 @InputType({ description: "New User data" })
 export class UserInput implements Partial<Omit<User, '_id'>>{

@@ -2,6 +2,7 @@ import { getCustomRepository, Repository } from "typeorm";
 
 import { User } from "../entities/User";
 import { UserInput } from "../models/UserInput";
+import { UserUpdateInput } from "../models/UserUpdateInput";
 import { UserRepository } from "../repositories/UserRepository";
 
 class UserService {
@@ -41,6 +42,19 @@ class UserService {
 
     await this.userRepository.save(user);
     return user;
+  }
+
+  async updateUserById(userData: UserUpdateInput): Promise<User> {
+    const { _id } = userData;
+
+    let userToUpdate = await this.userRepository.findOne(_id);
+
+    userToUpdate.name = userData.name;
+    userToUpdate.email = userData.email;
+    userToUpdate.level_access = userData.level_access;
+    await this.userRepository.save(userToUpdate);
+
+    return userToUpdate;
   }
 
 }
