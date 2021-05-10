@@ -72,7 +72,7 @@ class UserService {
     if (levelsAccess) {
       const setRolesExists = new Set<LevelAccess>();
       userToUpdate.levelsAccess.map(role => setRolesExists.add(role));
-      
+
       levelsAccess.map(role => {
         const levelAcess = this.levelAccessRepository.create({
           name: role
