@@ -1,6 +1,8 @@
 import { Field, ID, ObjectType } from "type-graphql";
-import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, BeforeInsert, BeforeUpdate, OneToMany } from "typeorm"
 import bcrypt from 'bcryptjs';
+
+import { LevelAccess } from "./LevelAccess";
 
 @ObjectType()
 @Entity("tb_user")
@@ -21,9 +23,9 @@ class User {
   @Column()
   password: string;
 
-  @Field()
-  @Column()
-  level_access: string;
+  @Field(type => [LevelAccess])
+  @OneToMany(type => LevelAccess, levelAccess => levelAccess.user, { eager: true })
+  levelsAccess: LevelAccess[];
 
   @Field()
   @Column()

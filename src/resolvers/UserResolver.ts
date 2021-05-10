@@ -39,8 +39,3 @@ export class UserResolver {
   }
 
 }
-
-interface IUserInputUpdate {
-
-
-}
